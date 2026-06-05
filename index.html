@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mole Bin · 个人博客</title>
+  <meta name="description" content="一个简洁、响应式、可直接发布的个人博客模板。" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <span class="brand-mark">B</span>
+      <span>
+        <strong>Mole Bin</strong>
+        <small>Notes, ideas and life</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#posts">文章</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+      <button id="themeToggle" class="icon-button" type="button" aria-label="切换深浅色主题">🌙</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Mole Bin 的个人博客</p>
+        <h1>好好生活，<wbr><span class="title-nowrap">好好学习</span>。</h1>
+        <p class="hero-text">一个想要好好生活的工科小硕士，记录学习、感悟和生活。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#posts">浏览文章</a>
+          <a class="button ghost" href="#about">了解作者</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="博客概览">
+        <div class="metric"><strong id="postCount">4</strong><span>篇文章</span></div>
+        <div class="metric"><strong>4</strong><span>个栏目</span></div>
+        <div class="metric"><strong>100%</strong><span>响应式</span></div>
+      </aside>
+    </section>
+
+    <section id="posts" class="section posts-section">
+      <div class="blog-layout">
+        <aside class="left-sidebar" aria-label="作者与文章侧栏">
+          <div class="sidebar-card author-card profile-card">
+            <div class="author-avatar">M</div>
+            <h3>Mole Bin</h3>
+            <p>一个想要好好生活的工科小硕士</p>
+            <div class="author-stats" aria-label="博客统计">
+              <span><strong id="sidebarPostCount">4</strong><small>文章</small></span>
+              <span><strong id="categoryCount">3</strong><small>分类</small></span>
+              <span><strong id="tagCount">6</strong><small>标签</small></span>
+              <span><strong id="wordCount">0</strong><small>万字</small></span>
+            </div>
+          </div>
+
+          <div class="sidebar-card toc-card">
+            <div class="sidebar-title">
+              <h3><span>☰</span> 文章目录</h3>
+            </div>
+            <nav id="tocList" class="toc-list" aria-label="当前文章目录">
+              <a href="#posts">最新文章</a>
+              <a href="#about">关于作者</a>
+              <a href="#contact">联系</a>
+            </nav>
+          </div>
+
+          <div class="sidebar-card category-card">
+            <div class="sidebar-title">
+              <h3><span>▦</span> 分类</h3>
+            </div>
+            <div id="categoryFilters" class="filters sidebar-filters" aria-label="文章分类筛选"></div>
+          </div>
+
+          <div class="sidebar-card latest-card">
+            <h3><span>↻</span> 最近文章</h3>
+            <div id="latestList" class="latest-list" aria-label="最近文章列表"></div>
+          </div>
+        </aside>
+
+        <div class="post-main">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Latest Posts</p>
+              <h2>最新文章</h2>
+            </div>
+            <label class="search-box">
+              <span>搜索</span>
+              <input id="searchInput" type="search" placeholder="输入关键词…" />
+            </label>
+          </div>
+          <div id="postGrid" class="post-grid" aria-live="polite"></div>
+          <article id="postReader" class="post-reader" hidden></article>
+        </div>
+      </div>
+    </section>
+
+<section id="about" class="section about-grid">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>关于 Mole Bin</h2>
+        <p>Mole Bin，一个想要好好生活的工科小硕士，做着咸鱼翻身的美梦。这里会记录学习、项目、生活和那些想要慢慢变好的瞬间。</p>
+      </div>
+      <div class="about-card">
+        <h3>适合写什么？</h3>
+        <ul>
+          <li>学习笔记与技术教程</li>
+          <li>项目复盘与产品思考</li>
+          <li>读书摘要与生活随笔</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-card">
+      <p class="eyebrow">Contact</p>
+      <h2>保持联系</h2>
+      <div class="link-row">
+        <a href="1934471221@qq.com">Email</a>
+        <a href="https://github.com/repos" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#top">回到顶部</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Mole Bin · Built with plain HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

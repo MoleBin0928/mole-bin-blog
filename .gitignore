@@ -1,0 +1,9 @@
+﻿# Local preview scripts, not needed on GitHub Pages
+start-blog.bat
+start-blog.ps1
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
