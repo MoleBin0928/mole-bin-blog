@@ -5,7 +5,7 @@
     category: '写作',
     date: '2026-06-05',
     updated: '2026-06-05',
-    views: 128,
+    views: 0,
     readTime: '4 分钟',
     excerpt: '从确定主题、设计栏目到保持更新节奏，快速搭建一个可持续写下去的博客。',
     body: `
@@ -25,7 +25,7 @@
     category: '写作',
     date: '2026-06-05',
     updated: '2026-06-05',
-    views: 89,
+    views: 0,
     readTime: '12 分钟',
     excerpt: '从南方到北方求学，不只是一场地理迁徙，也是一场关于身份、自由、选择与自我和解的精神漂泊。',
     body: `
@@ -74,7 +74,7 @@
     category: '技术',
     date: '2026-06-04',
     updated: '2026-06-04',
-    views: 76,
+    views: 0,
     readTime: '5 分钟',
     excerpt: '静态网站速度快、成本低、维护简单，非常适合个人博客、作品集和项目记录。',
     body: `
@@ -91,7 +91,7 @@
     category: '生活',
     date: '2026-06-03',
     updated: '2026-06-03',
-    views: 42,
+    views: 0,
     readTime: '3 分钟',
     excerpt: '用三个问题完成每周复盘：完成了什么、学到了什么、下周最重要的事是什么。',
     body: `
@@ -124,17 +124,23 @@ function formatDate(dateText) {
 
 
 
-function getStoredViews(slug, baseViews = 0) {
-  const stored = Number(localStorage.getItem(`post-views-${slug}`));
-  return Number.isFinite(stored) && stored > 0 ? stored : baseViews;
+const VIEW_STORAGE_PREFIX = 'mole-bin-post-views-v2';
+
+function viewStorageKey(slug) {
+  return `${VIEW_STORAGE_PREFIX}-${slug}`;
+}
+
+function getStoredViews(slug) {
+  const stored = Number(localStorage.getItem(viewStorageKey(slug)));
+  return Number.isFinite(stored) && stored >= 0 ? stored : 0;
 }
 
 function setStoredViews(slug, views) {
-  localStorage.setItem(`post-views-${slug}`, String(views));
+  localStorage.setItem(viewStorageKey(slug), String(Math.max(0, views)));
 }
 
 function getPostViews(post) {
-  return getStoredViews(post.slug, post.views || 0);
+  return getStoredViews(post.slug);
 }
 
 function newestUpdatedPost() {
