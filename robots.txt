@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://molebin0928.github.io/mole-bin-blog/sitemap.xml
