@@ -281,14 +281,15 @@ function renderArticleToc(post) {
   if (!tocList) return;
   const headings = Array.from(reader.querySelectorAll('.article-body h3'));
   if (!headings.length) {
-    renderDefaultToc();
+    tocList.innerHTML = '<a class="toc-back" href="#posts" data-close-reader>← 返回文章列表</a>';
     return;
   }
-  tocList.innerHTML = headings.map((heading, index) => {
+  const headingLinks = headings.map((heading, index) => {
     const id = `${post.slug}-section-${index + 1}`;
     heading.id = id;
     return `<a href="#${id}">${heading.textContent}</a>`;
   }).join('');
+  tocList.innerHTML = `<a class="toc-back" href="#posts" data-close-reader>← 返回文章列表</a>${headingLinks}`;
 }
 
 function renderLatestList() {
@@ -310,7 +311,7 @@ function openPost(slug) {
   setStoredViews(post.slug, nextViews);
   reader.hidden = false;
   reader.innerHTML = `
-    <button class="button ghost close-reader" type="button">关闭文章</button>
+    <button class="button ghost close-reader" type="button">← 返回文章列表</button>
     <p class="eyebrow">${post.category} · 发布 ${formatDate(post.date)} · 更新 ${formatDate(post.updated || post.date)} · ${post.readTime} · 阅读 ${nextViews} 次</p>
     <h2>${post.title}</h2>
     <div class="article-body">${post.body}</div>
@@ -321,11 +322,15 @@ function openPost(slug) {
   reader.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function closePost() {
+function closePost(options = {}) {
+  const { scrollToList = false } = options;
   document.body.classList.remove('is-reading');
   reader.hidden = true;
   reader.innerHTML = '';
   renderDefaultToc();
+  if (scrollToList) {
+    document.querySelector('#posts')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 filters.addEventListener('click', event => {
@@ -345,9 +350,16 @@ postGrid.addEventListener('click', event => {
 });
 
 reader.addEventListener('click', event => {
-  if (event.target.closest('.close-reader')) closePost();
+  if (event.target.closest('.close-reader')) closePost({ scrollToList: true });
 });
 
+
+tocList?.addEventListener('click', event => {
+  const backLink = event.target.closest('[data-close-reader]');
+  if (!backLink) return;
+  event.preventDefault();
+  closePost({ scrollToList: true });
+});
 if (latestList) {
   latestList.addEventListener('click', event => {
     const link = event.target.closest('[data-latest-slug]');

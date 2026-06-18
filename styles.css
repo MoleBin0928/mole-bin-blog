@@ -570,3 +570,17 @@ body.is-reading .toc-list a {
     overflow: visible;
   }
 }
+/* Article return link */
+.toc-list .toc-back {
+  border-left-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent), transparent 92%);
+  border-radius: 0 12px 12px 0;
+  font-weight: 900;
+}
+.toc-list .toc-back:hover {
+  background: color-mix(in srgb, var(--accent), transparent 86%);
+}
+.close-reader {
+  margin-bottom: 1rem;
+}
