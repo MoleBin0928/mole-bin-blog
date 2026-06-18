@@ -434,3 +434,139 @@ main { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
     grid-template-columns: 1fr;
   }
 }
+/* Compact sidebar while reading */
+.left-sidebar {
+  gap: .75rem;
+}
+.profile-card {
+  min-height: auto;
+  padding: 1.15rem 1rem 1rem;
+}
+.author-avatar {
+  width: 76px;
+  height: 76px;
+  margin-bottom: .55rem;
+  border-width: 3px;
+}
+.profile-card h3 {
+  margin: .1rem 0 .2rem;
+  font-size: 1.18rem;
+}
+.profile-card p {
+  margin-bottom: .7rem;
+  font-size: .84rem;
+  line-height: 1.45;
+}
+.author-stats {
+  margin-top: .35rem;
+}
+.author-stats strong {
+  font-size: 1.08rem;
+}
+.author-stats small {
+  font-size: .72rem;
+}
+.sidebar-card {
+  padding: 1rem;
+}
+.toc-card .toc-list {
+  gap: .35rem;
+}
+.toc-list a {
+  padding: .48rem .55rem;
+}
+body.is-reading .left-sidebar {
+  top: 76px;
+  gap: .6rem;
+}
+body.is-reading .profile-card {
+  padding: 1rem .9rem .85rem;
+}
+body.is-reading .author-avatar {
+  width: 68px;
+  height: 68px;
+  margin-bottom: .45rem;
+}
+body.is-reading .profile-card h3 {
+  font-size: 1.05rem;
+}
+body.is-reading .profile-card p {
+  margin-bottom: .55rem;
+  font-size: .78rem;
+}
+body.is-reading .author-stats strong {
+  font-size: 1rem;
+}
+body.is-reading .author-stats small {
+  font-size: .68rem;
+}
+body.is-reading .category-card,
+body.is-reading .latest-card {
+  display: none;
+}
+body.is-reading .toc-card {
+  padding: .95rem;
+}
+body.is-reading .toc-list a {
+  padding: .45rem .55rem;
+  font-size: .9rem;
+}
+@media (max-width: 960px) {
+  body.is-reading .category-card,
+  body.is-reading .latest-card {
+    display: block;
+  }
+}
+/* Reading TOC stays near top */
+body.is-reading .left-sidebar {
+  position: sticky;
+  top: 76px;
+  align-self: start;
+  max-height: calc(100vh - 92px);
+  overflow: visible;
+}
+body.is-reading .profile-card {
+  min-height: 0;
+  max-height: 210px;
+  overflow: hidden;
+}
+body.is-reading .author-avatar {
+  width: 58px;
+  height: 58px;
+}
+body.is-reading .profile-card p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body.is-reading .author-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+body.is-reading .toc-card {
+  max-height: calc(100vh - 320px);
+  overflow: hidden;
+}
+body.is-reading .toc-card .toc-list {
+  max-height: calc(100vh - 390px);
+  overflow-y: auto;
+  padding-right: .25rem;
+  scrollbar-width: thin;
+}
+body.is-reading .toc-list a {
+  display: block;
+  line-height: 1.45;
+  max-height: 3.1em;
+  overflow: hidden;
+}
+@media (max-width: 960px) {
+  body.is-reading .left-sidebar {
+    position: static;
+    max-height: none;
+  }
+  body.is-reading .profile-card,
+  body.is-reading .toc-card,
+  body.is-reading .toc-card .toc-list {
+    max-height: none;
+    overflow: visible;
+  }
+}

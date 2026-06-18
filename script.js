@@ -303,6 +303,7 @@ function renderLatestList() {
 }
 
 function openPost(slug) {
+  document.body.classList.add('is-reading');
   const post = posts.find(item => item.slug === slug);
   if (!post) return;
   const nextViews = getPostViews(post) + 1;
@@ -321,6 +322,7 @@ function openPost(slug) {
 }
 
 function closePost() {
+  document.body.classList.remove('is-reading');
   reader.hidden = true;
   reader.innerHTML = '';
   renderDefaultToc();
