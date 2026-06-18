@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://molebin0928.github.io/mole-bin-blog/sitemap.xml
-Sitemap: https://molebin0928.github.io/mole-bin-blog/sitemap.txt
+Sitemap: https://molebin.site/sitemap.xml
+Sitemap: https://molebin.site/sitemap.txt

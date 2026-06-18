@@ -1,4 +1,4 @@
-﻿# GitHub Pages 部署说明
+# GitHub Pages 部署说明
 
 这个文件夹是一个纯静态博客，可以直接部署到 GitHub Pages。
 

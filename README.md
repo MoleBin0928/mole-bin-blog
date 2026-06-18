@@ -1,4 +1,4 @@
-﻿# Mole Bin 的个人博客
+# Mole Bin 的个人博客
 
 这是一个纯静态个人博客模板，可直接双击 `index.html` 预览，也可以上传到 GitHub Pages、Netlify、Vercel 等平台。
 
