@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
@@ -25,7 +25,7 @@
   <link rel="sitemap" type="application/xml" href="https://molebin0928.github.io/mole-bin-blog/sitemap.xml" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
+<body class="dashboard-theme">
   <header class="site-header">
     <a class="brand" href="#top" aria-label="返回首页">
       <span class="brand-mark">B</span>
@@ -37,6 +37,7 @@
     <nav class="nav" aria-label="主导航">
       <a href="#posts">文章</a>
       <a href="#about">关于</a>
+      <a href="./links.html">友链</a>
       <a href="#contact">联系</a>
       <button id="themeToggle" class="icon-button" type="button" aria-label="切换深浅色主题">🌙</button>
     </nav>
@@ -82,6 +83,7 @@
             <nav id="tocList" class="toc-list" aria-label="当前文章目录">
               <a href="#posts">最新文章</a>
               <a href="#about">关于作者</a>
+              <a href="./links.html">友情链接</a>
               <a href="#contact">联系</a>
             </nav>
           </div>
@@ -113,6 +115,35 @@
           <div id="postGrid" class="post-grid" aria-live="polite"></div>
           <article id="postReader" class="post-reader" hidden></article>
         </div>
+        <aside class="right-sidebar" aria-label="网站信息侧栏">
+          <div class="right-widget action-widget" aria-label="文章互动">
+            <button type="button">👍</button>
+            <button type="button">💬</button>
+            <button type="button">🎁</button>
+          </div>
+
+          <div class="right-widget info-widget">
+            <h3>博客信息</h3>
+            <dl class="site-stats-list">
+              <div><dt>文章数目</dt><dd>4</dd></div>
+              <div><dt>栏目分类</dt><dd>3</dd></div>
+              <div><dt>运行状态</dt><dd>持续更新</dd></div>
+              <div><dt>最后活动</dt><dd>今天</dd></div>
+            </dl>
+          </div>
+
+          <div class="right-widget tags-widget">
+            <h3>文章标签</h3>
+            <div class="tag-cloud">
+              <span>学习</span><span>写作</span><span>生活</span><span>静态博客</span><span>项目</span><span>成长</span>
+            </div>
+          </div>
+
+          <div class="right-widget note-widget">
+            <h3>一句话</h3>
+            <p>慢慢写，慢慢改，慢慢把生活过成自己喜欢的样子。</p>
+          </div>
+        </aside>
       </div>
     </section>
 
