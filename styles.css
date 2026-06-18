@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   color-scheme: light;
   --bg: #f6f2ea;
   --surface: rgba(255, 255, 255, 0.78);
@@ -376,3 +376,61 @@ main { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
 
 
 
+
+/* No blank area filler */
+.blog-layout {
+  align-items: stretch;
+}
+.post-main {
+  min-height: 100%;
+}
+.post-filler {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  grid-column: 1 / -1;
+  margin-top: .2rem;
+}
+.post-filler-card {
+  display: flex;
+  min-height: 170px;
+  flex-direction: column;
+  gap: .65rem;
+  border: 1px dashed color-mix(in srgb, var(--accent), var(--line) 65%);
+  border-radius: 24px;
+  padding: 1.2rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 92%), transparent 55%),
+    var(--surface-strong);
+}
+.post-filler-card h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.35;
+}
+.post-filler-card p {
+  color: var(--muted);
+}
+.filler-links {
+  display: grid;
+  gap: .45rem;
+  margin-top: auto;
+}
+.filler-links a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .45rem .7rem;
+  background: var(--surface);
+  color: var(--accent-2);
+  font-weight: 800;
+  font-size: .9rem;
+}
+.filler-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+@media (max-width: 860px) {
+  .post-filler {
+    grid-template-columns: 1fr;
+  }
+}

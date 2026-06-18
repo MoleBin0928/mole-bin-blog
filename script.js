@@ -1,4 +1,4 @@
-﻿const posts = [
+const posts = [
   {
     slug: 'start-a-blog',
     title: '如何开始写自己的第一篇博客',
@@ -197,6 +197,44 @@ function getVisiblePosts() {
   });
 }
 
+function renderPostFiller(visiblePosts) {
+  const currentCategory = state.category === '全部' ? '博客' : state.category;
+  const otherPosts = posts.filter(post => !visiblePosts.some(item => item.slug === post.slug)).slice(0, 2);
+  const cards = [
+    `
+      <article class="post-filler-card intro-card">
+        <span class="tag">栏目说明</span>
+        <h3>${currentCategory}还在慢慢生长</h3>
+        <p>这个区域会继续补充新的记录。暂时文章不多时，先把这里作为写作计划和阅读入口。</p>
+      </article>
+    `,
+    `
+      <article class="post-filler-card plan-card">
+        <span class="tag">写作计划</span>
+        <h3>下一篇想写什么？</h3>
+        <p>可以写学习笔记、项目复盘、生活观察，也可以把某个问题拆成一篇短文。</p>
+      </article>
+    `
+  ];
+
+  if (otherPosts.length) {
+    cards.push(`
+      <article class="post-filler-card recommend-card">
+        <span class="tag">推荐阅读</span>
+        <h3>也可以看看这些文章</h3>
+        <div class="filler-links">
+          ${otherPosts.map(post => `<a href="#posts" data-slug="${post.slug}">${post.title}</a>`).join('')}
+        </div>
+      </article>
+    `);
+  }
+
+  return `
+    <section class="post-filler" aria-label="文章补充内容">
+      ${cards.join('')}
+    </section>
+  `;
+}
 function renderPosts() {
   const visiblePosts = getVisiblePosts();
   document.querySelector('#postCount').textContent = posts.length;
@@ -204,7 +242,7 @@ function renderPosts() {
     postGrid.innerHTML = '<p class="empty">没有找到相关文章，试试换个关键词。</p>';
     return;
   }
-  postGrid.innerHTML = visiblePosts.map(post => `
+  const postCards = visiblePosts.map(post => `
     <article class="post-card">
       <span class="tag">${post.category}</span>
       <h3>${post.title}</h3>
@@ -221,6 +259,9 @@ function renderPosts() {
       <a class="read-more" href="#posts" data-slug="${post.slug}">阅读全文 →</a>
     </article>
   `).join('');
+
+  const shouldFill = visiblePosts.length < 4 || state.category !== '全部' || state.query.trim();
+  postGrid.innerHTML = postCards + (shouldFill ? renderPostFiller(visiblePosts) : '');
 }
 
 
